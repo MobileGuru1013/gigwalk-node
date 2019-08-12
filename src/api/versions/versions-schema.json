@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "http://gigwalk.com/src/api/versions/versions-schema.json#",
+    "type": "object",
+    "properties": {
+        "allOf": [
+            { "$ref": "http://gigwalk.com/src/api/base-schema.json#" },
+            { "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "minimum_ios_version": {
+                                "type": "string"
+                            },
+                            "minimum_android_version": {
+                                "type": "string"
+                            },
+                            "version": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "minimum_ios_version",
+                            "minimum_android_version",
+                            "version"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "data"
+            ] }
+        ]
+    }
+}

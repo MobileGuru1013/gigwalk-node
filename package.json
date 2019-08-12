@@ -1,0 +1,88 @@
+{
+  "name": "gigwalk",
+  "version": "0.0.0-development",
+  "description": "Gigwalk API Client - universal.",
+  "main": "./lib",
+  "scripts": {
+    "prebuild": "rm -rf lib",
+    "build": "NODE_ENV=production babel src -d lib -s",
+    "postbuild": "gulp",
+    "eslint": "eslint .",
+    "flow": "flow",
+    "prepublish": "yarn run build",
+    "test": "NODE_ENV=test mocha ./test/unit/",
+    "test-api": "NODE_ENV=test mocha --require ./test/apiSetup.js --timeout 30000 ./test/api/",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gigwalk-corp/gigwalk-node.git"
+  },
+  "keywords": [
+    "gigwalk",
+    "api",
+    "client",
+    "axios"
+  ],
+  "author": "Steven Bassett <steven.j.bassett@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gigwalk-corp/gigwalk-node/issues"
+  },
+  "homepage": "https://github.com/gigwalk-corp/gigwalk-node#readme",
+  "dependencies": {
+    "babel-runtime": "^6.11.6",
+    "btoa": "^1.1.2",
+    "json-stable-stringify": "^1.0.1",
+    "lodash.clonedeep": "^4.4.1"
+  },
+  "peerDependencies": {
+    "axios": ">=0.15 <0.17"
+  },
+  "devDependencies": {
+    "axios": "^0.16.1",
+    "axios-mock-adapter": "^1.7.0",
+    "babel-cli": "^6.14.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-rewire": "^1.0.0-rc-4",
+    "babel-plugin-syntax-flow": "^6.8.0",
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.14.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-json-schema": "^1.4.0",
+    "condition-circle": "^1.5.0",
+    "cz-conventional-changelog": "^2.0.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-flowtype": "^2.28.2",
+    "eslint-plugin-gigwalk": "^1.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-mocha": "^4.7.0",
+    "eslint-plugin-react": "^6.7.1",
+    "flow-bin": "^0.45.0",
+    "flow-typed": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "mocha": "^3.2.0",
+    "mockery": "^2.0.0",
+    "moniker": "^0.1.2",
+    "semantic-release": "^6.3.2",
+    "sinon": "^2.2.0",
+    "sinon-chai": "^2.10.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
+  }
+}

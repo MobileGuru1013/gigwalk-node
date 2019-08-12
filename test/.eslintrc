@@ -1,0 +1,7 @@
+{
+    "extends": "../.eslintrc",
+    "globals": {
+        "gigwalk": true,
+        "expect": true
+    }
+}
